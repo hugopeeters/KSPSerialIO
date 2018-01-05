@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
   <double name="refresh">0.2</double>
-  <string name="DefaultPort">/dev/tty.usbmodem1421</string>
+  <string name="DefaultPort">/dev/cu.usbmodem30</string>
   <int name="BaudRate">38400</int>
   <int name="HandshakeDelay">2500</int>
   <int name="HandshakeDisable">0</int>

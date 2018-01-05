@@ -2,7 +2,7 @@ export PATH := /usr/local/bin:$(PATH)
 XBUILD=xbuild
 CONFIG=Release
 
-KSPDIR=/Users/peter/Library/Application\ Support/Steam/steamapps/common/Kerbal\ Space\ Program
+KSPDIR=/Users/hugo/Local\ Files/KSP/MyMOD/
 INSTALLDIR=$(KSPDIR)/GameData/KSPSerialIO
 CONFIGDIR=$(INSTALLDIR)/PluginData/KSPSerialIO
 

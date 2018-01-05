@@ -1,5 +1,7 @@
 # Changelog
 
+* **0.20.0.0**: 20180105
+  This is my first edit, removing stuff I don't need and testing the build process.
 * **0.18.6.1**: 20170304
   This release just updates to the upstream 0.18.6 release.
 * **0.18.2.2**: 20160809
