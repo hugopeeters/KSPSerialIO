@@ -1173,50 +1173,20 @@ namespace KSPSerialIO
                     }
 
 
-
-                    //if (Math.Abs(KSPSerialPort.VControls.Pitch) > SettingsNStuff.SASTol ||
-                    //Math.Abs(KSPSerialPort.VControls.Roll) > SettingsNStuff.SASTol ||
-                    //Math.Abs(KSPSerialPort.VControls.Yaw) > SettingsNStuff.SASTol)
-                    //{
-                    //    //ActiveVessel.Autopilot.SAS.ManualOverride(true); 
-
-                    //    if ((ActiveVessel.Autopilot.SAS.lockedMode == true) && (wasSASOn == false))
-                    //    {
-                    //        wasSASOn = true;
-                    //    }
-                    //    else if (wasSASOn != true)
-                    //    {
-                    //        wasSASOn = false;
-                    //    }
-
-                    //    if (wasSASOn == true)
-                    //    {
-                    //        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, false);
-                    //        //ActiveVessel.Autopilot.SAS.lockedMode = false;
-                    //        //ActiveVessel.Autopilot.SAS.dampingMode = true;
-                    //    }
-                    //    /*                                              
-                        
-                    //    if (KSPSerialPort.VControls.SAS == true)
-                    //    {
-                    //        KSPSerialPort.VControls.SAS = false;
-                    //        KSPSerialPort.VControlsOld.SAS = false;
-                    //    }
-                    //     */
-                    //    //KSPSerialPort.VControlsOld.Pitch = KSPSerialPort.VControls.Pitch;
-                    //    //KSPSerialPort.VControlsOld.Roll = KSPSerialPort.VControls.Roll;
-                    //    //KSPSerialPort.VControlsOld.Yaw = KSPSerialPort.VControls.Yaw;
-                    //}
-                    //else
-                    //{
-                    //    if (wasSASOn == true)
-                    //    {
-                    //        wasSASOn = false;
-                    //        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, true);
-                    //        //ActiveVessel.Autopilot.SAS.lockedMode = true;
-                    //        //ActiveVessel.Autopilot.SAS.dampingMode = false;
-                    //    }
-                    //}
+                    // temporarily disengage SAS while steering
+                    if (Math.Abs(KSPSerialPort.VControls.Pitch) > SettingsNStuff.SASTol ||
+                    Math.Abs(KSPSerialPort.VControls.Roll) > SettingsNStuff.SASTol ||
+                    Math.Abs(KSPSerialPort.VControls.Yaw) > SettingsNStuff.SASTol)
+                    {
+                        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, false);
+                    }
+                    else
+                    {
+                        if (KSPSerialPort.VControls.SAS == true)
+                        {
+                            ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, true);
+                        }
+                    }
 
                     KSPSerialPort.ControlReceived = false;
                 } //end ControlReceived
@@ -1227,7 +1197,6 @@ namespace KSPSerialIO
             else
             {
                 //Debug.Log("KSPSerialIO: ActiveVessel not found");
-                //ActiveVessel.OnFlyByWire -= new FlightInputCallback(AxisInput);
             }
 
         }
@@ -1279,18 +1248,6 @@ namespace KSPSerialIO
                         R.Current += (float)pr.amount;
                         R.Max += (float)pr.maxAmount;
 
-                        /* shit doesn't work
-                           int stageno = p.inverseStage;
-                        
-
-                        Debug.Log(pr.resourceName + "  " + stageno.ToString() + "  " + Staging.CurrentStage.ToString());
-                        //if (p.inverseStage == Staging.CurrentStage + 1)
-                        if (stageno == Staging.CurrentStage)
-                        {                            
-                            R.CurrentStage += (float)pr.amount;
-                            R.MaxStage += (float)pr.maxAmount;
-                        }
-                         */
                         break;
                     }
                 }
@@ -1376,11 +1333,7 @@ namespace KSPSerialIO
                 default:
                     break;
             }
-            /*
-            if (ActiveVessel.Autopilot.SAS.lockedMode == true)
-            {
-            }
-            */
+
             switch (SettingsNStuff.TXEnable)
             {
                 case 1:
@@ -1710,8 +1663,6 @@ namespace KSPSerialIO
                 KSPSerialPort.PortCleanup();
                 ScreenMessages.PostScreenMessage("Port closed", 10f, KSPIOScreenStyle);
             }
-
-            ActiveVessel.OnFlyByWire -= new FlightInputCallback(AxisInput);
         }
     }
 }
