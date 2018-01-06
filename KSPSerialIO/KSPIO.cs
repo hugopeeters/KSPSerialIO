@@ -908,6 +908,7 @@ namespace KSPSerialIO
                             if (ActiveVessel.patchedConicSolver.maneuverNodes.Count > 0)
                             {
                                 KSPSerialPort.VData.MNTime = (UInt32)Math.Round(ActiveVessel.patchedConicSolver.maneuverNodes[0].UT - Planetarium.GetUniversalTime());
+                                //ScreenMessages.PostScreenMessage(KSPSerialPort.VData.MNTime.ToString());
                                 //KSPSerialPort.VData.MNDeltaV = (float)ActiveVessel.patchedConicSolver.maneuverNodes[0].DeltaV.magnitude;
                                 KSPSerialPort.VData.MNDeltaV = (float)ActiveVessel.patchedConicSolver.maneuverNodes[0].GetBurnVector(ActiveVessel.patchedConicSolver.maneuverNodes[0].patch).magnitude; //Added JS
                             }

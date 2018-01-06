@@ -221,3 +221,4 @@ KSPresources
 KSPSerialIO.version
 
 KSPSerialIO.userprefs
+*.userprefs
