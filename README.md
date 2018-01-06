@@ -9,7 +9,7 @@ KSP. This fork of the plugin runs on MacOS and is customized by hugopeeters for 
 * Automatic port detection. You'll need to explicitly set a serial port in the `config.xml`.
 * After EVA, the buttons work, but the analog inputs (rotation, translation, throttle) do not.
 * On initial load of the game, the first time a vessel is loaded, it does not respond to the controller. After one reload of the vessel (revert to launch for example) it does.
-* When SAS is on, rotation and translation is impossible. I don't like the way temporarily disabling SAS works in the original mod. When using native inputs, you can control the vessel better with SAS on.
+* When SAS is on, rotation and translation is impossible. When using native inputs, you can control the vessel better with SAS on. The mod now temporarily disables SAS while you are steering.
 
 ## License
 
