@@ -604,12 +604,12 @@ namespace KSPSerialIO
                                 Port.Close();
                                 if (DisplayFound)
                                 {
-                                    Debug.Log("KSPSerialIO: found KSP Display at " + Port.PortName);
+                                    Debug.Log("KSPSerialIO-hp: found KSP Display at " + Port.PortName);
                                     break;
                                 }
                                 else
                                 {
-                                    Debug.Log("KSPSerialIO: KSP Display not found");
+                                    Debug.Log("KSPSerialIO-hp: KSP Display not found");
                                 }
                             }
                             else if (Port.IsOpen && (SettingsNStuff.HandshakeDisable == 1))
@@ -789,16 +789,10 @@ namespace KSPSerialIO
                 ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.Custom09, KSPSerialPort.VControls.ControlGroup[9]);
                 ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.Custom10, KSPSerialPort.VControls.ControlGroup[10]);
 
-                /*
-                ActiveVessel.OnFlyByWire -= new FlightInputCallback(AxisInput);
-                ActiveVessel.OnFlyByWire += new FlightInputCallback(AxisInput);
-                ActiveVessel.OnPostAutopilotUpdate -= AxisInput;
-                ActiveVessel.OnPostAutopilotUpdate += AxisInput;
-                */
             }
             else
             {
-                ScreenMessages.PostScreenMessage("No display found", 10f, KSPIOScreenStyle);
+                ScreenMessages.PostScreenMessage("KerbalController not found", 10f, KSPIOScreenStyle);
             }
         }
 
@@ -1180,49 +1174,49 @@ namespace KSPSerialIO
 
 
 
-                    if (Math.Abs(KSPSerialPort.VControls.Pitch) > SettingsNStuff.SASTol ||
-                    Math.Abs(KSPSerialPort.VControls.Roll) > SettingsNStuff.SASTol ||
-                    Math.Abs(KSPSerialPort.VControls.Yaw) > SettingsNStuff.SASTol)
-                    {
-                        //ActiveVessel.Autopilot.SAS.ManualOverride(true); 
+                    //if (Math.Abs(KSPSerialPort.VControls.Pitch) > SettingsNStuff.SASTol ||
+                    //Math.Abs(KSPSerialPort.VControls.Roll) > SettingsNStuff.SASTol ||
+                    //Math.Abs(KSPSerialPort.VControls.Yaw) > SettingsNStuff.SASTol)
+                    //{
+                    //    //ActiveVessel.Autopilot.SAS.ManualOverride(true); 
 
-                        if ((ActiveVessel.Autopilot.SAS.lockedMode == true) && (wasSASOn == false))
-                        {
-                            wasSASOn = true;
-                        }
-                        else if (wasSASOn != true)
-                        {
-                            wasSASOn = false;
-                        }
+                    //    if ((ActiveVessel.Autopilot.SAS.lockedMode == true) && (wasSASOn == false))
+                    //    {
+                    //        wasSASOn = true;
+                    //    }
+                    //    else if (wasSASOn != true)
+                    //    {
+                    //        wasSASOn = false;
+                    //    }
 
-                        if (wasSASOn == true)
-                        {
-                            ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, false);
-                            //ActiveVessel.Autopilot.SAS.lockedMode = false;
-                            //ActiveVessel.Autopilot.SAS.dampingMode = true;
-                        }
-                        /*                                              
+                    //    if (wasSASOn == true)
+                    //    {
+                    //        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, false);
+                    //        //ActiveVessel.Autopilot.SAS.lockedMode = false;
+                    //        //ActiveVessel.Autopilot.SAS.dampingMode = true;
+                    //    }
+                    //    /*                                              
                         
-                        if (KSPSerialPort.VControls.SAS == true)
-                        {
-                            KSPSerialPort.VControls.SAS = false;
-                            KSPSerialPort.VControlsOld.SAS = false;
-                        }
-                         */
-                        //KSPSerialPort.VControlsOld.Pitch = KSPSerialPort.VControls.Pitch;
-                        //KSPSerialPort.VControlsOld.Roll = KSPSerialPort.VControls.Roll;
-                        //KSPSerialPort.VControlsOld.Yaw = KSPSerialPort.VControls.Yaw;
-                    }
-                    else
-                    {
-                        if (wasSASOn == true)
-                        {
-                            wasSASOn = false;
-                            ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, true);
-                            //ActiveVessel.Autopilot.SAS.lockedMode = true;
-                            //ActiveVessel.Autopilot.SAS.dampingMode = false;
-                        }
-                    }
+                    //    if (KSPSerialPort.VControls.SAS == true)
+                    //    {
+                    //        KSPSerialPort.VControls.SAS = false;
+                    //        KSPSerialPort.VControlsOld.SAS = false;
+                    //    }
+                    //     */
+                    //    //KSPSerialPort.VControlsOld.Pitch = KSPSerialPort.VControls.Pitch;
+                    //    //KSPSerialPort.VControlsOld.Roll = KSPSerialPort.VControls.Roll;
+                    //    //KSPSerialPort.VControlsOld.Yaw = KSPSerialPort.VControls.Yaw;
+                    //}
+                    //else
+                    //{
+                    //    if (wasSASOn == true)
+                    //    {
+                    //        wasSASOn = false;
+                    //        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, true);
+                    //        //ActiveVessel.Autopilot.SAS.lockedMode = true;
+                    //        //ActiveVessel.Autopilot.SAS.dampingMode = false;
+                    //    }
+                    //}
 
                     KSPSerialPort.ControlReceived = false;
                 } //end ControlReceived

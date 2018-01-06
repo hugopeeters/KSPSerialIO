@@ -4,14 +4,12 @@ This is a fork of the [KSPSerialIO](http://forum.kerbalspaceprogram.com/index.ph
 plugin for Kerbal Space Program. KSPSerialIO provides a serial interface for
 KSP. This fork of the plugin runs on MacOS and is customized by hugopeeters for use with his KerbalController.
 
-## What doesn't work?
+## What doesn't work (yet)?
 
-* Automatic port detection. You'll need to explicitly set a serial port
-  in the `config.xml`.
-
-## What does work?
-
-* Everything else, as far as I'm aware.
+* Automatic port detection. You'll need to explicitly set a serial port in the `config.xml`.
+* After EVA, the buttons work, but the analog inputs (rotation, translation, throttle) do not.
+* On initial load of the game, the first time a vessel is loaded, it does not respond to the controller. After one reload of the vessel (revert to launch for example) it does.
+* When SAS is on, rotation and translation is impossible. I don't like the way temporarily disabling SAS works in the original mod. When using native inputs, you can control the vessel better with SAS on.
 
 ## License
 
