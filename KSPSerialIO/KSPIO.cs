@@ -1036,12 +1036,12 @@ namespace KSPSerialIO
                      */
 
                     //if (FlightInputHandler.RCSLock != KSPSerialPort.VControls.RCS)
-                    if (KSPSerialPort.VControls.RCS != KSPSerialPort.VControlsOld.RCS)
-                    {
+                    // if (KSPSerialPort.VControls.RCS != KSPSerialPort.VControlsOld.RCS)
+                    // {
                         ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.RCS, KSPSerialPort.VControls.RCS);
-                        KSPSerialPort.VControlsOld.RCS = KSPSerialPort.VControls.RCS;
+                        // KSPSerialPort.VControlsOld.RCS = KSPSerialPort.VControls.RCS;
                         //ScreenMessages.PostScreenMessage("RCS: " + KSPSerialPort.VControls.RCS.ToString(), 10f, KSPIOScreenStyle);
-                    }
+                    // }
 
                     //if (ActiveVessel.ctrlState.killRot != KSPSerialPort.VControls.SAS)
                     if (KSPSerialPort.VControls.SAS != KSPSerialPort.VControlsOld.SAS)
