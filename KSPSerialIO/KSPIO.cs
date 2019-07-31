@@ -1035,21 +1035,21 @@ namespace KSPSerialIO
                      ", Stage: " + KSPSerialPort.VControls.Stage.ToString());
                      */
 
-                    //if (FlightInputHandler.RCSLock != KSPSerialPort.VControls.RCS)
-                    // if (KSPSerialPort.VControls.RCS != KSPSerialPort.VControlsOld.RCS)
+                    // if (FlightInputHandler.RCSLock != KSPSerialPort.VControls.RCS)
+                     if (KSPSerialPort.VControls.RCS && !KSPSerialPort.VControlsOld.RCS)
                     // {
-                        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.RCS, KSPSerialPort.VControls.RCS);
-                        // KSPSerialPort.VControlsOld.RCS = KSPSerialPort.VControls.RCS;
+                        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.RCS, !ActiveVessel.ActionGroups[KSPActionGroup.RCS]);
                         //ScreenMessages.PostScreenMessage("RCS: " + KSPSerialPort.VControls.RCS.ToString(), 10f, KSPIOScreenStyle);
                     // }
+                    KSPSerialPort.VControlsOld.RCS = KSPSerialPort.VControls.RCS;
 
                     //if (ActiveVessel.ctrlState.killRot != KSPSerialPort.VControls.SAS)
-                    if (KSPSerialPort.VControls.SAS != KSPSerialPort.VControlsOld.SAS)
+                    if (KSPSerialPort.VControls.SAS && !KSPSerialPort.VControlsOld.SAS)
                     {
-                        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, KSPSerialPort.VControls.SAS);
-                        KSPSerialPort.VControlsOld.SAS = KSPSerialPort.VControls.SAS;
+                        ActiveVessel.ActionGroups.SetGroup(KSPActionGroup.SAS, !ActiveVessel.ActionGroups[KSPActionGroup.SAS]);
                         //ScreenMessages.PostScreenMessage("SAS: " + KSPSerialPort.VControls.SAS.ToString(), 10f, KSPIOScreenStyle);
                     }
+                        KSPSerialPort.VControlsOld.SAS = KSPSerialPort.VControls.SAS;
 
                     if (KSPSerialPort.VControls.Lights != KSPSerialPort.VControlsOld.Lights)
                     {
