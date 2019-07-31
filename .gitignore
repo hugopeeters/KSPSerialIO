@@ -221,3 +221,9 @@ KSPSerialIO.version
 
 KSPSerialIO.userprefs
 *.userprefs
+KSPSerialIO/KSPSerialIO.sln
+KSPSerialIO/.vs/KSPSerialIO/xs/UserPrefs.xml
+KSPSerialIO/.vs/KSPSerialIO/xs/sqlite3/storage.ide
+KSPSerialIO/.vs/KSPSerialIO/xs/sqlite3/db.lock
+KSPSerialIO/.vs/KSPSerialIO/xs/project-cache/KSPSerialIO-Release.json
+KSPSerialIO/.vs/KSPSerialIO/xs/project-cache/KSPSerialIO-Debug.json
