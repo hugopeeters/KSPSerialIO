@@ -4,9 +4,9 @@ This is a fork of the [KSPSerialIO](http://forum.kerbalspaceprogram.com/index.ph
 plugin for Kerbal Space Program. KSPSerialIO provides a serial interface for
 KSP. This fork of the plugin runs on MacOS and is customized by hugopeeters for use with his KerbalController.
 
-## What doesn't work (yet)?
+## What doesn't work (yet)
 
-See the issues list on the github page (https://github.com/hugopeeters/KSPSerialIO/issues)
+See the issues list on the github page (<https://github.com/hugopeeters/KSPSerialIO/issues>)
 
 ## License
 
