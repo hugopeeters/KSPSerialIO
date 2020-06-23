@@ -25,6 +25,7 @@ Once you have the right configuration, you can run `make install` again, to copy
 ### Detecting the serial port
 An easy way to detect this, is to connect your arduino board to your computer, open the [arduino IDE](https://www.arduino.cc/en/main/software), press `command + shift + M` and note the path on the serial monitor title bar. For example `/dev/cu.usbmodem14601`
 
+![Screen Shot 2020-06-22 at 5 47 01 PM](https://user-images.githubusercontent.com/967311/85348595-ea843c80-b4b0-11ea-893a-3ab5afe80678.png)
 
 ## Verification
 To verify that the plugin is being loaded, and that is successfully communicating with your Arduino board, you can check the Kerbal Space Program log. 
